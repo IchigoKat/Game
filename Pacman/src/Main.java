@@ -1,11 +1,26 @@
 /**
- * Created by sheryl_chin on 3/13/17.
+ * Created by sheryl_chin + Sunjae_Lee on 3/13/17.
  */
-public class Main {
+ import javax.swing.*;
 
-    public static void main(String[] args) {
-        System.out.println("this is a test!!!");
-        int x = 4;
-        int y = 4;
+        public class Main extends JFrame {
+
+            public static void main(String[] args) {
+                int w = 800;
+                int h = 800;
+                JFrame window = new JFrame("");
+                window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window.setBounds(500, 0, w, h); //(x, y, w, h)
+
+                ProjectPanel panel = new ProjectPanel(w,h);
+                panel.setFocusable(true);
+                panel.grabFocus();
+                window.add(panel);
+                window.setVisible(true);
+
+
+            }
+
+        }
     }
 }
