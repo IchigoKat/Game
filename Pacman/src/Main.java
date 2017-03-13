@@ -6,8 +6,8 @@
         public class Main extends JFrame {
 
             public static void main(String[] args) {
-                int w = 800;
-                int h = 800;
+                int w = 420;
+                int h = 550;
                 JFrame window = new JFrame("");
                 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 window.setBounds(500, 0, w, h); //(x, y, w, h)
