@@ -41,8 +41,7 @@ public class ProjectPanel extends JPanel {
                     keys[KeyEvent.VK_S] = false;
                 }
             }
-
-            repaint();
+          //  repaint();
         });
         timer.start();
 
@@ -62,6 +61,11 @@ public class ProjectPanel extends JPanel {
                 keys[keyEvent.getKeyCode()] = false;
             }
         });
+
+    }
+    public void paintComponent (Graphics g){
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
 
     }
     public static void main(String[] args) {
