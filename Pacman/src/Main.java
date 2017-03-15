@@ -12,15 +12,13 @@
                 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 window.setBounds(500, 0, w, h); //(x, y, w, h)
 
-                ProjectPanel panel = new ProjectPanel(w,h);
-                panel.setFocusable(true);
-                panel.grabFocus();
-                window.add(panel);
-                window.setVisible(true);
+//                JPanel panel = new ProjectPanel(w, h);
+//                panel.setFocusable(true);
+//                panel.grabFocus();
+//                window.add(panel);
+//                window.setVisible(true);
 
 
             }
 
         }
-    }
-}
