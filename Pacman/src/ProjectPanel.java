@@ -19,6 +19,7 @@ public class ProjectPanel extends JPanel {
 
         timer = new Timer(40, new ActionListener() {
 
+
             public void actionPerformed(ActionEvent actionEvent) {
 
                 //move the frog
@@ -44,6 +45,8 @@ public class ProjectPanel extends JPanel {
           //  repaint();
         });
         timer.start();
+
+
 
         addKeyListener(new KeyListener() {
             @Override
