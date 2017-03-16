@@ -7,7 +7,7 @@ public class Olimer extends Sprite {
 
     public Olimer() {
         super(500, 550, NORTH);
-        setPic("Olimer.png", NORTH);
+        setPic("OlimerLeft.png", NORTH);
         //moves the height of the image.
         setSpeed(this.getBoundingRectangle().height);
 

@@ -30,11 +30,11 @@ public class ProjectPanel extends JPanel {
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
-
+                    Olimer.setPic("OlimerLeft.png", Sprite.NORTH);
                     keys[KeyEvent.VK_A] = false;
                 }
                 if (keys[KeyEvent.VK_D]) {
-
+                    Olimer.setPic("OlimerRight.png", Sprite.NORTH);
                     keys[KeyEvent.VK_D] = false;
                 }
                 if (keys[KeyEvent.VK_S]) {
