@@ -13,10 +13,11 @@ public class ProjectPanel extends JPanel {
     public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
     private Timer timer;
     private boolean[] keys;
+    private Sprite Olimer;
 
     public ProjectPanel() {
         keys = new boolean[512];
-
+        Olimer = new Olimer();
         timer = new Timer(40, new ActionListener() {
 
 
@@ -69,7 +70,7 @@ public class ProjectPanel extends JPanel {
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-
+        Olimer.draw(g2);
     }
     public static void main(String[] args) {
         int w = 420;
