@@ -13,8 +13,15 @@ public class Olimer extends Sprite {
 
     }
 
-
     //@Override some methods...
+    public void setDead(boolean d) {
+        isDead = d;
+    }
+
+    public boolean getDead() {
+        return isDead;
+    }
+
     @Override
     public void update() {
         if (!isDead)
@@ -25,20 +32,18 @@ public class Olimer extends Sprite {
             setDead(true);
 
         }
-        if (getLoc().getX() == 0) {
-            setLoc(new Point(500, 550));
+        if (getLoc().getX() < 0) {
+            setLoc(new Point(ProjectPanel.FRAMEWIDTH, getLoc().y));
 
-        } else if (getLoc().getX() >= ProjectPanel.FRAMEWIDTH) {
-            setLoc(new Point(500, 550));
+        } else if (getLoc().getX() > ProjectPanel.FRAMEWIDTH) {
+            setLoc(new Point(0, getLoc().y));
         }
-    }
+        if (getLoc().getY() < 0) {
+            setLoc(new Point(getLoc().x, ProjectPanel.FRAMEHEIGHT));
 
-    public void setDead(boolean d) {
-        isDead = d;
-    }
-
-    public boolean getDead() {
-        return isDead;
+        } else if (getLoc().getY() > ProjectPanel.FRAMEHEIGHT) {
+            setLoc(new Point(getLoc().x, ProjectPanel.FRAMEHEIGHT));
+        }
     }
 
     public int getX() {
@@ -48,7 +53,6 @@ public class Olimer extends Sprite {
     public int getY() {
         return getLoc().y;
     }
-
 
 }
 

@@ -8,17 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class ProjectPanel extends JPanel {
     public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
     private Timer timer;
     private boolean[] keys;
-    private Sprite Olimer;
+    private Olimer Oli;
+    private ArrayList<Sprite> monster;
 
     public ProjectPanel() {
         keys = new boolean[512];
-        Olimer = new Olimer();
+        Oli = new Olimer();
+        monster = new ArrayList<Sprite>();
+
         timer = new Timer(40, new ActionListener() {
+
+
 
 
             public void actionPerformed(ActionEvent actionEvent) {
@@ -30,11 +36,11 @@ public class ProjectPanel extends JPanel {
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
-                    Olimer.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
                     keys[KeyEvent.VK_A] = false;
                 }
                 if (keys[KeyEvent.VK_D]) {
-                    Olimer.setPic("OlimerRight.png", Sprite.NORTH);
+                    Oli.setPic("OlimerRight.png", Sprite.NORTH);
                     keys[KeyEvent.VK_D] = false;
                 }
                 if (keys[KeyEvent.VK_S]) {
@@ -42,6 +48,15 @@ public class ProjectPanel extends JPanel {
 
                     keys[KeyEvent.VK_S] = false;
                 }
+
+                for (int i = 0; i < monster.size(); i++) {
+                    monster.get(i).update();
+                    if (monster.get(i).intersects(Oli) == true ) {
+                        Oli.setDead(true);
+                    }
+                }
+
+
             }
           //  repaint();
         });
@@ -70,7 +85,7 @@ public class ProjectPanel extends JPanel {
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Olimer.draw(g2);
+        Oli.draw(g2);
     }
     public static void main(String[] args) {
         int w = 420;
