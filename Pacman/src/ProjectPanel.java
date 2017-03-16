@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class ProjectPanel extends JPanel {
-    public static final int FRAMEWIDTH = 1000, FRAMEHEIGHT = 600;
+    public static final int FRAMEWIDTH = 420, FRAMEHEIGHT = 550;
     private Timer timer;
     private boolean[] keys;
     private Olimer Oli;
