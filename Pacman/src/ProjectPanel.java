@@ -86,6 +86,7 @@ public class ProjectPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         Oli.draw(g2);
+        g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
     }
     public static void main(String[] args) {
         int w = 420;

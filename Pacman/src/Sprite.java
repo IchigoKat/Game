@@ -26,7 +26,7 @@ public class Sprite {
     public Sprite(int x, int y, int direction) {
         loc = new Point(x, y);
         dir = direction;
-        setPic("Olimer.png", NORTH);
+        setPic("OlimerLeft.png", NORTH);
         speed = 5;
 
         id = nextID;
@@ -65,7 +65,7 @@ public class Sprite {
      */
     public void setPic(String fileName, int orientation) {
         try {
-            pic = ImageIO.read(new File("res/" + fileName));
+            pic = ImageIO.read(new File("Pacman/res/" + fileName));
             picOrientation = orientation;
         } catch (Exception e) {
             e.printStackTrace();
