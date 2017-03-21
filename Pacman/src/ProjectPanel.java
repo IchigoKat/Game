@@ -32,7 +32,7 @@ public class ProjectPanel extends JPanel {
                 //move the frog
                 if (keys[KeyEvent.VK_W]) {
 
-
+                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
@@ -45,7 +45,7 @@ public class ProjectPanel extends JPanel {
                 }
                 if (keys[KeyEvent.VK_S]) {
 
-
+                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
                     keys[KeyEvent.VK_S] = false;
                 }
 
@@ -85,8 +85,8 @@ public class ProjectPanel extends JPanel {
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Oli.draw(g2);
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
+        Oli.draw(g2);
     }
     public static void main(String[] args) {
         int w = 420;
