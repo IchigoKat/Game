@@ -33,19 +33,27 @@ public class ProjectPanel extends JPanel {
                 if (keys[KeyEvent.VK_W]) {
 
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_W] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_A]) {
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_A] = false;
                 }
                 if (keys[KeyEvent.VK_D]) {
                     Oli.setPic("OlimerRight.png", Sprite.NORTH);
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_D] = false;
                 }
                 if (keys[KeyEvent.VK_S]) {
 
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_S] = false;
                 }
 
@@ -56,7 +64,7 @@ public class ProjectPanel extends JPanel {
                     }
                 }
 
-
+        repaint();
             }
           //  repaint();
         });
