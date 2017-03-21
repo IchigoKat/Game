@@ -6,11 +6,14 @@ public class PacManGrid {
     public PacManGrid() {
 
         board= new int[][]{
-                {0,0, 0,0},
+                {0,0,0,0,0},
                 {0,0,1,0,0},
-                {0,0,0,1,0}
+                {0,0,0,1,0},
+                {0,0,0,0,0},
+                {0,0,0,0,0},
 
         };
+
     }
 
     public boolean Path(){
