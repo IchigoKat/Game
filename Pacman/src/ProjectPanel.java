@@ -17,13 +17,15 @@ public class ProjectPanel extends JPanel {
     private Olimer Oli;
     private ArrayList<Sprite> monster;
 
+    private PacManGrid gr;
+
     public ProjectPanel() {
         keys = new boolean[512];
         Oli = new Olimer();
         monster = new ArrayList<Sprite>();
+        gr = new PacManGrid();
 
         timer = new Timer(40, new ActionListener() {
-
 
 
 
@@ -99,6 +101,7 @@ public class ProjectPanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
         Oli.draw(g2);
+        gr.dra(g2);
     }
     public static void main(String[] args) {
         int w = 420;
