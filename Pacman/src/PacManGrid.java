@@ -67,8 +67,8 @@ return true;
         int h = 15;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                Color blue = new Color (64, 187, 178);
-                g.setPaint(blue);
+                Color pink = new Color (169, 32, 171);
+                g.setPaint(pink);
                 if (board[i][j]==1) {
                     g.fillRect(j * l, i * h, l, h);
                 }
