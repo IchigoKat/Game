@@ -58,15 +58,18 @@ public class PacManGrid {
         };
     }
 
-    public boolean Path(){
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] == 1)
-                    return false;
-            }
-        }
+
+    public boolean Path(int x, int y) {
+
+//        if (board[x+1][y] == 1)
+//            if( board[x-1][y]==1)
+//                if( board[x][y+1]==1)
+//                    if(board[x][y-1]==1)
+//
+//            return false;
         return true;
     }
+
     public void dra(Graphics2D g)
     {
         int l = 15;

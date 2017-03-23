@@ -35,6 +35,7 @@ public class ProjectPanel extends JPanel {
                 if (keys[KeyEvent.VK_W]) {
 
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_W] = false; //probably.
