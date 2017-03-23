@@ -1,5 +1,7 @@
 import java.awt.*;
 
+import static java.awt.Color.blue;
+
 /**
  * Created by sunjae_lee on 3/16/17.
  */
@@ -65,9 +67,10 @@ return true;
         int h = 15;
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                g.setColor(Color.WHITE);
+                Color blue = new Color (64, 187, 178);
+                g.setPaint(blue);
                 if (board[i][j]==1) {
-                    g.drawRect(j * l, i * h, l, h);
+                    g.fillRect(j * l, i * h, l, h);
                 }
             }
         }
