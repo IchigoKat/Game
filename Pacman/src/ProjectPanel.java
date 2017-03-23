@@ -32,36 +32,36 @@ public class ProjectPanel extends JPanel {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 //move the frog
-                if (keys[KeyEvent.VK_W]) {
+                if (keys[KeyEvent.VK_UP]) {
 
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
 
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_W] = false; //probably.
+                    keys[KeyEvent.VK_UP] = false; //probably.
                 }
-                if (keys[KeyEvent.VK_A]) {
+                if (keys[KeyEvent.VK_RIGHT]) {
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
                     Oli.setDir(Sprite.WEST);
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_A] = false;
+                    keys[KeyEvent.VK_RIGHT] = false;
                 }
-                if (keys[KeyEvent.VK_D]) {
+                if (keys[KeyEvent.VK_LEFT]) {
                     Oli.setPic("OlimerRight.png", Sprite.NORTH);
                     Oli.setDir(Sprite.EAST);
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_D] = false;
+                    keys[KeyEvent.VK_LEFT] = false;
                 }
-                if (keys[KeyEvent.VK_S]) {
+                if (keys[KeyEvent.VK_DOWN]) {
 
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
 
                     Oli.setDir(Sprite.SOUTH);
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_S] = false;
+                    keys[KeyEvent.VK_DOWN] = false;
                 }
 
                 for (int i = 0; i < monster.size(); i++) {
@@ -100,6 +100,8 @@ public class ProjectPanel extends JPanel {
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
+        Color blue = new Color (116, 193, 159);
+        g2.setPaint(blue);
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
         Oli.draw(g2);
         gr.dra(g2);
