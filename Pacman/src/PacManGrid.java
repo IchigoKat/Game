@@ -7,7 +7,6 @@ import static java.awt.Color.blue;
  */
 public class PacManGrid {
     private int board[][];
-
     private Rectangle[][] rects;
     public PacManGrid() {
 
@@ -58,13 +57,12 @@ public class PacManGrid {
 
 
         };
-
         int l = 15;
         int h = 15;
-        rects = new Rectangle[board.length][board[0].length];
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
-                if(board[i][j] == 1) {
+
+                if (board[i][j] == 1) {
                     Rectangle temp = new Rectangle(j * l, i * h, l, h);
                     rects[i][j] = temp;
                 }
@@ -75,12 +73,6 @@ public class PacManGrid {
 
     public boolean Path(int x, int y) {
 
-//        if (board[x+1][y] == 1)
-//            if( board[x-1][y]==1)
-//                if( board[x][y+1]==1)
-//                    if(board[x][y-1]==1)
-//
-//            return false;
         return true;
     }
 
@@ -98,7 +90,6 @@ public class PacManGrid {
             }
         }
     }
-    public Rectangle[][] getRects() {
-        return rects;
-    }
+
+
 }
