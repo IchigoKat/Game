@@ -40,19 +40,19 @@ public class ProjectPanel extends JPanel {
                     Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_UP] = false; //probably.
                 }
-                if (keys[KeyEvent.VK_RIGHT]) {
+                if (keys[KeyEvent.VK_LEFT]) {
                     Oli.setPic("OlimerLeft.png", Sprite.NORTH);
                     Oli.setDir(Sprite.WEST);
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_RIGHT] = false;
+                    keys[KeyEvent.VK_LEFT] = false;
                 }
-                if (keys[KeyEvent.VK_LEFT]) {
+                if (keys[KeyEvent.VK_RIGHT]) {
                     Oli.setPic("OlimerRight.png", Sprite.NORTH);
                     Oli.setDir(Sprite.EAST);
                     Oli.update();
                     Oli.setDir(Sprite.NORTH);
-                    keys[KeyEvent.VK_LEFT] = false;
+                    keys[KeyEvent.VK_RIGHT] = false;
                 }
                 if (keys[KeyEvent.VK_DOWN]) {
 
