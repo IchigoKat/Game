@@ -4,12 +4,15 @@
 import java.awt.*;
 public class Olimer extends Sprite {
     private boolean isDead;
+    private PacManGrid grid;
 
-    public Olimer() {
+    public Olimer(PacManGrid grid) {
         super(100, 300, NORTH);
         setPic("OlimerLeft.png", NORTH);
         //moves the height of the image.
-        setSpeed(this.getBoundingRectangle().height);
+//        setSpeed(this.getBoundingRectangle().height);
+        setSpeed(4);
+        this.grid = grid;
 
     }
 
@@ -24,9 +27,24 @@ public class Olimer extends Sprite {
 
     @Override
     public void update() {
-        if (!isDead)
+        if (!isDead) {
 
-            super.update();
+            boolean move = true;
+            int dx = (int) (Math.cos(Math.toRadians(getDir())) * getSpeed());
+            int dy = -(int) (Math.sin(Math.toRadians(getDir())) * getSpeed());
+            Point temp = new Point(getCenterPoint());
+            temp.translate(dx, dy);
+
+            for(Rectangle[] row: grid.getRects()){
+                for(Rectangle rect: row){
+                    if(rect != null && rect.contains(temp))
+                        move = false;
+                }
+            }
+//            if(temp is inside a wall...)
+            if(move)
+                super.update();
+        }
         else {
             getDead();
             setDead(true);
@@ -53,6 +71,15 @@ public class Olimer extends Sprite {
     public int getY() {
         return getLoc().y;
     }
+
+//    @Override
+//    public Rectangle getBoundingRectangle() {
+//        Rectangle r = super.getBoundingRectangle();
+//        r.setSize(r.width-2, r.height-2);
+//        return r;
+//    }
+
+
 
 }
 
