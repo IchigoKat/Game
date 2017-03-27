@@ -21,7 +21,7 @@ public class ProjectPanel extends JPanel {
 
     public ProjectPanel() {
         keys = new boolean[512];
-        Oli = new Olimer();
+        Oli = new Olimer(gr);
         monster = new ArrayList<Sprite>();
         gr = new PacManGrid();
 

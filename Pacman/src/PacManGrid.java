@@ -90,6 +90,9 @@ public class PacManGrid {
             }
         }
     }
+    public Rectangle[][] getRects(){
+        return rects;
+    }
 
 
 }
