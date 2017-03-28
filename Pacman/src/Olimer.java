@@ -7,11 +7,12 @@ public class Olimer extends Sprite {
     private PacManGrid grid;
 
     public Olimer(PacManGrid grid) {
-        super(100, 300, NORTH);
+        super(100, 303, NORTH);
         setPic("OlimerLeft.png", NORTH);
         //moves the height of the image.
 //        setSpeed(this.getBoundingRectangle().height);
         setSpeed(4);
+        setDir(EAST);
         this.grid = grid;
 
     }
@@ -42,14 +43,17 @@ public class Olimer extends Sprite {
                 }
             }
 //            if(temp is inside a wall...)
-            if(move)
+            if(move==true)
                 super.update();
+
         }
         else {
             getDead();
             setDead(true);
 
         }
+
+
         if (getLoc().getX() < 0) {
             setLoc(new Point(ProjectPanel.FRAMEWIDTH, getLoc().y));
 
