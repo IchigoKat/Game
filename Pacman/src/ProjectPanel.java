@@ -41,13 +41,13 @@ public class ProjectPanel extends JPanel {
                     keys[KeyEvent.VK_UP] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_LEFT]) {
-                    Oli.setPic("AshLeft.png", Sprite.NORTH);
+                    Oli.setPic("AshLeft.png", Sprite.WEST);
                     Oli.setDir(Sprite.WEST);
 
                     keys[KeyEvent.VK_LEFT] = false;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
-                    Oli.setPic("AshRight.png", Sprite.NORTH);
+                    Oli.setPic("AshRight.png", Sprite.EAST);
                     Oli.setDir(Sprite.EAST);
 
 
@@ -55,7 +55,7 @@ public class ProjectPanel extends JPanel {
                 }
                 if (keys[KeyEvent.VK_DOWN]) {
 
-                    Oli.setPic("AshFront.png", Sprite.NORTH);
+                    Oli.setPic("AshFront.png", Sprite.SOUTH);
 
                     Oli.setDir(Sprite.SOUTH);
 
