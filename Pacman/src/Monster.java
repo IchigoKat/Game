@@ -7,6 +7,7 @@ public class Monster extends Sprite {
 
     public Monster(int x,int y){
         super(x,y,EAST);
+        setPic("PikaLeft.png", NORTH);
     }
 
     public void setDead(boolean d) {

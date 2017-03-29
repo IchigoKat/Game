@@ -21,10 +21,9 @@ public class ProjectPanel extends JPanel {
 
     public ProjectPanel() {
         keys = new boolean[512];
+        Oli = new Olimer(gr);
         monster = new ArrayList<Sprite>();
         gr = new PacManGrid();
-        Oli = new Olimer(gr);
-
 
         timer = new Timer(40, new ActionListener() {
 
@@ -35,35 +34,35 @@ public class ProjectPanel extends JPanel {
                 //move the frog
                 if (keys[KeyEvent.VK_UP]) {
 
-                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.setPic("AshLeft.png", Sprite.NORTH);
 
-
+                    Oli.update();
                     Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_UP] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_LEFT]) {
-                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.setPic("AshLeft.png", Sprite.NORTH);
                     Oli.setDir(Sprite.WEST);
-
-
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_LEFT] = false;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
-                    Oli.setPic("OlimerRight.png", Sprite.NORTH);
+                    Oli.setPic("AshRight.png", Sprite.NORTH);
                     Oli.setDir(Sprite.EAST);
-
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_RIGHT] = false;
                 }
                 if (keys[KeyEvent.VK_DOWN]) {
 
-                    Oli.setPic("OlimerLeft.png", Sprite.NORTH);
+                    Oli.setPic("AshLeft.png", Sprite.NORTH);
 
                     Oli.setDir(Sprite.SOUTH);
-
-
+                    Oli.update();
+                    Oli.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_DOWN] = false;
                 }
-                Oli.update();
 
                 for (int i = 0; i < monster.size(); i++) {
                     monster.get(i).update();
