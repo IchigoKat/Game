@@ -97,6 +97,9 @@ public class ProjectPanel extends JPanel {
         });
 
     }
+    public Sprite target(){
+        return Oli;
+    }
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
