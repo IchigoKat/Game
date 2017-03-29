@@ -4,9 +4,12 @@
 import java.awt.*;
 public class Monster extends Sprite {
     private boolean isDead;
+    private Sprite target;
 
-    public Monster(int x,int y){
+    public Monster(int x,int y, ProjectPanel panel){
         super(x,y,EAST);
+        setPic("PikaLeft.png",NORTH);
+        target= panel.target();
     }
 
     public void setDead(boolean d) {
@@ -22,6 +25,7 @@ public class Monster extends Sprite {
 
     public void update() {
         if(!isDead){
+            setDir(target.getDir());
 //            if(getTarget().intersects(this) && getTarget() instanceof Zombie && !getTarget().equals(this)){
 //                Point loc = getTarget().getLoc();
 //                getWorld().removeSprite(getTarget());
