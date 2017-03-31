@@ -25,7 +25,7 @@ public class ProjectPanel extends JPanel {
         Oli = new Olimer(gr);
         monster = new ArrayList<Sprite>();
 
-        monster.add(new Monster(4,4,this));
+        monster.add(new Monster(300,300,this,gr));
 
         timer = new Timer(40, new ActionListener() {
 
@@ -66,9 +66,9 @@ public class ProjectPanel extends JPanel {
 
                 for (int i = 0; i < monster.size(); i++) {
                     monster.get(i).update();
-                    if (monster.get(i).intersects(Oli) == true ) {
-                        Oli.setDead(true);
-                    }
+//                    if (monster.get(i).intersects(Oli) == true ) {
+//                        Oli.setDead(true);
+//                    }
                 }
 
         repaint();
@@ -106,6 +106,9 @@ public class ProjectPanel extends JPanel {
         Color blue = new Color (193, 157, 85);
         g2.setPaint(blue);
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
+        for(Sprite s: monster) {
+            s.draw(g2);
+        }
         Oli.draw(g2);
         gr.dra(g2);
     }
