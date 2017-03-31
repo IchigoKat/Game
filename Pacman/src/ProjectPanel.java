@@ -25,6 +25,7 @@ public class ProjectPanel extends JPanel {
         Oli = new Olimer(gr);
         monster = new ArrayList<Sprite>();
 
+        monster.add(new Monster(4,4,this));
 
         timer = new Timer(40, new ActionListener() {
 
