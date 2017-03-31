@@ -103,7 +103,7 @@ public class ProjectPanel extends JPanel {
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
-        Color blue = new Color (116, 193, 159);
+        Color blue = new Color (193, 157, 85);
         g2.setPaint(blue);
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
         Oli.draw(g2);
