@@ -30,19 +30,59 @@ public class Monster extends Sprite {
         if(!isDead){
             int d=this.getDirection(this.getLoc(),target.getLoc());
             setDir(d);
-//            if(getTarget().intersects(this) && getTarget() instanceof Zombie && !getTarget().equals(this)){
-//                Point loc = getTarget().getLoc();
-//                getWorld().removeSprite(getTarget());
-//                Chaser zombie = new Zombie(loc.x, loc.y, getWorld());
-//                getWorld().addSprite(zombie);
-//                pickTarget();
-//
-//            }
-//            if(getTarget() instanceof Zombie) {
-//                setTarget(this);
-//            }
 
-            super.update();
+            boolean move = true;
+            int dxx = (int) (Math.cos(Math.toRadians(getDir())) * getSpeed());
+            int dyy = -(int) (Math.sin(Math.toRadians(getDir())) * getSpeed());
+            int dx= (this.getX()-target.getX())*getSpeed();
+            int dy= (this.getY()-target.getY())*getSpeed();
+//move =false?
+            if(dx<0){
+                setDir(Sprite.EAST);
+                setPic("PikaLeft.png",EAST);
+                if(dy>0){
+                    setDir(Sprite.NORTH);
+
+                }
+                if(dy<0){
+                    setDir(Sprite.SOUTH);
+                    setPic("PikaLeft.png",SOUTH);
+                }
+            }
+            if(dx>0){
+                setDir(Sprite.WEST);
+                setPic("PikaLeft.png",WEST);
+
+                if(dy>0){
+                    setDir(Sprite.NORTH);
+                    setPic("PikaLeft.png",NORTH);
+                }
+                if(dy<0){
+                    setDir(Sprite.SOUTH);
+                    setPic("PikaLeft.png",SOUTH);
+                }
+            }
+
+
+
+            Point temp = new Point(getCenterPoint());
+            temp.translate(dxx, 0);
+            temp.translate(0,dyy);
+
+            for(Rectangle[] row: grid.getRects()){
+                for(Rectangle rect: row){
+                    if(rect != null && rect.contains(temp))
+                        move = false;
+                }
+            }
+//            if(temp is inside a wall...)
+            if(move)
+                super.update();
+        }
+        else {
+            getDead();
+            setDead(true);
+
         }
         if (getLoc().getX() + 130 <= 0)
             setLoc(new Point(ProjectPanel.FRAMEWIDTH, (int) getLoc().getY()));
