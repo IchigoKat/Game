@@ -14,17 +14,21 @@ public class ProjectPanel extends JPanel {
     public static final int FRAMEWIDTH = 691, FRAMEHEIGHT = 670;
     private Timer timer;
     private boolean[] keys;
-    private Olimer Oli;
-    private ArrayList<Sprite> monster;
+    private Ash ash;
+    private ArrayList<Sprite> monster, poke;
 
     private PacManGrid gr;
 
     public ProjectPanel() {
         keys = new boolean[512];
         gr = new PacManGrid();
-        Oli = new Olimer(gr);
+        ash = new Ash(gr);
         monster = new ArrayList<Sprite>();
-
+        poke = new ArrayList<Sprite>();
+            poke.add(new Pokeball(42, 28));
+            poke.add(new Pokeball(303, 28));
+            poke.add(new Pokeball(564, 28));
+            poke.add(new Pokeball(825, 28));
         monster.add(new Monster(300,300,this,gr));
 
         timer = new Timer(40, new ActionListener() {
@@ -36,33 +40,33 @@ public class ProjectPanel extends JPanel {
                 //move the frog
                 if (keys[KeyEvent.VK_UP]) {
 
-                    Oli.setPic("AshFront.png", Sprite.NORTH);
+                    ash.setPic("AshFront.png", Sprite.NORTH);
 
-                    Oli.setDir(Sprite.NORTH);
+                    ash.setDir(Sprite.NORTH);
                     keys[KeyEvent.VK_UP] = false; //probably.
                 }
                 if (keys[KeyEvent.VK_LEFT]) {
-                    Oli.setPic("AshLeft.png", Sprite.WEST);
-                    Oli.setDir(Sprite.WEST);
+                    ash.setPic("AshLeft.png", Sprite.WEST);
+                    ash.setDir(Sprite.WEST);
 
                     keys[KeyEvent.VK_LEFT] = false;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
-                    Oli.setPic("AshRight.png", Sprite.EAST);
-                    Oli.setDir(Sprite.EAST);
+                    ash.setPic("AshRight.png", Sprite.EAST);
+                    ash.setDir(Sprite.EAST);
 
 
                     keys[KeyEvent.VK_RIGHT] = false;
                 }
                 if (keys[KeyEvent.VK_DOWN]) {
 
-                    Oli.setPic("AshFront.png", Sprite.SOUTH);
+                    ash.setPic("AshFront.png", Sprite.SOUTH);
 
-                    Oli.setDir(Sprite.SOUTH);
+                    ash.setDir(Sprite.SOUTH);
 
                     keys[KeyEvent.VK_DOWN] = false;
                 }
-                Oli.update();
+                ash.update();
 
                 for (int i = 0; i < monster.size(); i++) {
                     monster.get(i).update();
@@ -98,7 +102,7 @@ public class ProjectPanel extends JPanel {
 
     }
     public Sprite target(){
-        return Oli;
+        return ash;
     }
     public void paintComponent (Graphics g){
         super.paintComponent(g);
@@ -109,7 +113,7 @@ public class ProjectPanel extends JPanel {
         for(Sprite s: monster) {
             s.draw(g2);
         }
-        Oli.draw(g2);
+        ash.draw(g2);
         gr.dra(g2);
     }
     public static void main(String[] args) {
