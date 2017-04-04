@@ -8,11 +8,11 @@ public class Monster extends Sprite {
     private PacManGrid grid;
 
     public Monster(int x,int y, ProjectPanel panel,PacManGrid grid){
-        super(x,y,EAST);
+        super(x,y,NORTH);
         setPic("PikaLeft.png",NORTH);
         target= panel.target();
         this.grid=grid;
-        setSpeed(3);
+        setSpeed(5);
     }
 
     public void setDead(boolean d) {
@@ -27,70 +27,63 @@ public class Monster extends Sprite {
 
 
     public void update() {
-        if(!isDead){
-            int d=this.getDirection(this.getLoc(),target.getLoc());
-            setDir(d);
+        if (!isDead) {
 
             boolean move = true;
             int dxx = (int) (Math.cos(Math.toRadians(getDir())) * getSpeed());
             int dyy = -(int) (Math.sin(Math.toRadians(getDir())) * getSpeed());
-            int dx= (this.getX()-target.getX())*getSpeed();
-            int dy= (this.getY()-target.getY())*getSpeed();
+            int dx = (this.getX() - target.getX()) * getSpeed();
+            int dy = (this.getY() - target.getY()) * getSpeed();
+
+
 //move =false?
-            if(dx<0){
-                setDir(Sprite.EAST);
-                setPic("PikaLeft.png",EAST);
-                if(dy>0){
-                    setDir(Sprite.NORTH);
-
-                }
-                if(dy<0){
-                    setDir(Sprite.SOUTH);
-                    setPic("PikaLeft.png",SOUTH);
-                }
-            }
-            if(dx>0){
-                setDir(Sprite.WEST);
-                setPic("PikaLeft.png",WEST);
-
-                if(dy>0){
-                    setDir(Sprite.NORTH);
-                    setPic("PikaLeft.png",NORTH);
-                }
-                if(dy<0){
-                    setDir(Sprite.SOUTH);
-                    setPic("PikaLeft.png",SOUTH);
-                }
-            }
-
-
 
             Point temp = new Point(getCenterPoint());
-            temp.translate(dxx, 0);
-            temp.translate(0,dyy);
 
-            for(Rectangle[] row: grid.getRects()){
-                for(Rectangle rect: row){
-                    if(rect != null && rect.contains(temp))
+            temp.translate(dxx, 0);
+
+            temp.translate(0, dyy);
+
+            for (Rectangle[] row : grid.getRects()) {
+                for (Rectangle rect : row) {
+                    if (rect != null && rect.contains(temp))
                         move = false;
                 }
             }
+
+
+            if (move==false) {
+                if (this.getDir() == Sprite.NORTH || this.getDir() == Sprite.SOUTH) {
+                    if (dx > 0)
+                        setDir(Sprite.WEST);
+                    else
+                        setDir(Sprite.EAST);
+                } else if (this.getDir() == Sprite.EAST || this.getDir() == Sprite.WEST) {
+                    if (dy > 0)
+                        setDir(Sprite.NORTH);
+                    else
+                        setDir(Sprite.SOUTH);
+
+
+                }
+            }
 //            if(temp is inside a wall...)
-            if(move)
-                super.update();
+                if (move)
+                    super.update();
+            } else {
+                getDead();
+                setDead(true);
+
+            }
+
+            if (getLoc().getX() + 130 <= 0)
+                setLoc(new Point(ProjectPanel.FRAMEWIDTH, (int) getLoc().getY()));
+            else if (getLoc().getX() - 130 >= ProjectPanel.FRAMEWIDTH)
+                setLoc(new Point(0, (int) getLoc().getY()));
         }
-        else {
-            getDead();
-            setDead(true);
-
-        }
-        if (getLoc().getX() + 130 <= 0)
-            setLoc(new Point(ProjectPanel.FRAMEWIDTH, (int) getLoc().getY()));
-        else if (getLoc().getX() - 130 >= ProjectPanel.FRAMEWIDTH)
-            setLoc(new Point(0, (int) getLoc().getY()));
 
 
-    }
+
     public int getDirection(Point from, Point to){
         double dx = to.x - from.x;
         double dy = from.y - to.y;
