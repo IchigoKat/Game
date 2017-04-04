@@ -2,11 +2,11 @@
  * Created by sunjae_lee on 3/16/17.
  */
 import java.awt.*;
-public class Olimer extends Sprite {
+public class Ash extends Sprite {
     private boolean isDead;
     private PacManGrid grid;
 
-    public Olimer(PacManGrid grid) {
+    public Ash(PacManGrid grid) {
         super(100, 300, NORTH);
         setPic("AshLeft.png", NORTH);
         //moves the height of the image.
