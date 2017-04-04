@@ -3,7 +3,7 @@
  */
 public class Pokeball extends Sprite{
     public Pokeball(int x,int y){
-        super(x,y,EAST);
+        super(x,y,NORTH);
         setPic("pokeball.png",NORTH);
     }
 }

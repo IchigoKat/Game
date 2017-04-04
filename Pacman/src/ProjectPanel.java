@@ -11,11 +11,15 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class ProjectPanel extends JPanel {
-    public static final int FRAMEWIDTH = 691, FRAMEHEIGHT = 670;
+    public static final int FRAMEWIDTH = 690, FRAMEHEIGHT = 720;
     private Timer timer;
     private boolean[] keys;
     private Ash ash;
+    private Heart life;
+    private Live live;
     private ArrayList<Sprite> monster, poke;
+
+    private int lives = 3;
 
     private PacManGrid gr;
 
@@ -24,12 +28,14 @@ public class ProjectPanel extends JPanel {
         gr = new PacManGrid();
         ash = new Ash(gr);
         monster = new ArrayList<Sprite>();
-        poke = new ArrayList<Sprite>();
-            poke.add(new Pokeball(42, 28));
-            poke.add(new Pokeball(303, 28));
-            poke.add(new Pokeball(564, 28));
-            poke.add(new Pokeball(825, 28));
         monster.add(new Monster(300,300,this,gr));
+        poke = new ArrayList<Sprite>();
+            poke.add(new Pokeball(30, 30));
+            poke.add(new Pokeball(630, 30));
+            poke.add(new Pokeball(30, 585));
+            poke.add(new Pokeball(630, 585));
+        life = new Heart();
+        live = new Live();
 
         timer = new Timer(40, new ActionListener() {
 
@@ -75,6 +81,14 @@ public class ProjectPanel extends JPanel {
 //                    }
                 }
 
+                if(lives==3){
+                    life.setPic("FullHeart.png", Sprite.NORTH);
+                }else if(lives==2){
+                    life.setPic("Heart-1.png", Sprite.NORTH);
+                }else if(lives==1){
+                    life.setPic("Heart-2.png", Sprite.NORTH);
+                }
+
         repaint();
             }
           //  repaint();
@@ -113,8 +127,13 @@ public class ProjectPanel extends JPanel {
         for(Sprite s: monster) {
             s.draw(g2);
         }
+        for(Sprite p: poke){
+            p.draw(g2);
+        }
         ash.draw(g2);
         gr.dra(g2);
+        life.draw(g2);
+        live.draw(g2);
     }
     public static void main(String[] args) {
         int w = 420;

@@ -27,7 +27,9 @@ public class Monster extends Sprite {
 
 
     public void update() {
+
         if(!isDead){
+
             int d=this.getDirection(this.getLoc(),target.getLoc());
             setDir(d);
 
