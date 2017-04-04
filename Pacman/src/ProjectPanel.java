@@ -110,6 +110,9 @@ public class ProjectPanel extends JPanel {
         Color blue = new Color (193, 157, 85);
         g2.setPaint(blue);
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
+        for (Sprite p : poke) {
+            p.draw(g2);
+        }
         for(Sprite s: monster) {
             s.draw(g2);
         }
