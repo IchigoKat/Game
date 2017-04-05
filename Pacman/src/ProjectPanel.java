@@ -20,6 +20,7 @@ public class ProjectPanel extends JPanel {
     private PacManGrid gr;
 
     public ProjectPanel() {
+        System.out.println();
         keys = new boolean[512];
         gr = new PacManGrid();
         ash = new Ash(gr);
@@ -49,7 +50,7 @@ public class ProjectPanel extends JPanel {
                     ash.setPic("AshLeft.png", Sprite.WEST);
                     ash.setDir(Sprite.WEST);
 
-                    keys[KeyEvent.VK_LEFT] = false;
+                    keys[KeyEvent.VK_LEFT] = fale;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
                     ash.setPic("AshRight.png", Sprite.EAST);
