@@ -56,16 +56,25 @@ public class Monster extends Sprite {
 
             if (move==false) {
                 if (this.getDir() == Sprite.NORTH || this.getDir() == Sprite.SOUTH) {
-                    if (dx > 0)
+                    if (dx > 0) {
                         setDir(Sprite.WEST);
-                    else
-                        setDir(Sprite.EAST);
-                } else if (this.getDir() == Sprite.EAST || this.getDir() == Sprite.WEST) {
-                    if (dy > 0)
-                        setDir(Sprite.NORTH);
-                    else
-                        setDir(Sprite.SOUTH);
+                        setPic("PikaLeft.png", WEST);
+                    }
+                    else {
 
+                        setDir(Sprite.EAST);
+                        setPic("PikaRight.png", EAST);
+                    }
+                } else if (this.getDir() == Sprite.EAST || this.getDir() == Sprite.WEST) {
+                    if (dy > 0) {
+                        setDir(Sprite.NORTH);
+                        setPic("PikaFront.png", NORTH);
+                    }
+                    else {
+
+                        setDir(Sprite.SOUTH);
+                        setPic("PikaFront.png", SOUTH);
+                    }
 
                 }
             }
