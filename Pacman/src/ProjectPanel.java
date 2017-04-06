@@ -30,7 +30,7 @@ public class ProjectPanel extends JPanel {
             poke.add(new Pokeball(303, 28));
             poke.add(new Pokeball(564, 28));
             poke.add(new Pokeball(825, 28));
-        monster.add(new Monster(300,300,this,gr));
+        monster.add(new Monster(330,300,this,gr));
 
         timer = new Timer(40, new ActionListener() {
 
@@ -50,7 +50,7 @@ public class ProjectPanel extends JPanel {
                     ash.setPic("AshLeft.png", Sprite.WEST);
                     ash.setDir(Sprite.WEST);
 
-                    keys[KeyEvent.VK_LEFT] = fale;
+                    keys[KeyEvent.VK_LEFT] = false;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
                     ash.setPic("AshRight.png", Sprite.EAST);
