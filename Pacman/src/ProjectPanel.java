@@ -11,10 +11,12 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class ProjectPanel extends JPanel {
-    public static final int FRAMEWIDTH = 691, FRAMEHEIGHT = 670;
+    public static final int FRAMEWIDTH = 690, FRAMEHEIGHT = 720;
     private Timer timer;
     private boolean[] keys;
     private Ash ash;
+    private Heart heart;
+    private Live live;
     private ArrayList<Sprite> monster, poke;
 
     private PacManGrid gr;
@@ -25,12 +27,14 @@ public class ProjectPanel extends JPanel {
         gr = new PacManGrid();
         ash = new Ash(gr);
         monster = new ArrayList<Sprite>();
+        heart = new Heart();
+        live = new Live();
         poke = new ArrayList<Sprite>();
-            poke.add(new Pokeball(42, 28));
-            poke.add(new Pokeball(303, 28));
-            poke.add(new Pokeball(564, 28));
-            poke.add(new Pokeball(825, 28));
-        monster.add(new Monster(300,300,this,gr));
+            poke.add(new Pokeball(30, 30));
+            poke.add(new Pokeball(630, 30));
+            poke.add(new Pokeball(30, 585));
+            poke.add(new Pokeball(630, 585));
+        monster.add(new Monster(330,300,this,gr));
 
         timer = new Timer(40, new ActionListener() {
 
@@ -50,7 +54,7 @@ public class ProjectPanel extends JPanel {
                     ash.setPic("AshLeft.png", Sprite.WEST);
                     ash.setDir(Sprite.WEST);
 
-                    keys[KeyEvent.VK_LEFT] = fale;
+                    keys[KeyEvent.VK_LEFT] = false;
                 }
                 if (keys[KeyEvent.VK_RIGHT]) {
                     ash.setPic("AshRight.png", Sprite.EAST);
@@ -119,6 +123,8 @@ public class ProjectPanel extends JPanel {
         }
         ash.draw(g2);
         gr.dra(g2);
+        heart.draw(g2);
+        live.draw(g2);
     }
     public static void main(String[] args) {
         int w = 420;

@@ -27,6 +27,8 @@ public class Monster extends Sprite {
 
 
     public void update() {
+        if(getLoc().x > 255 && getLoc().x<435 && getLoc().y>270 && getLoc().y<345)
+            setDir(NORTH);
         if (!isDead) {
 
             boolean move = true;
