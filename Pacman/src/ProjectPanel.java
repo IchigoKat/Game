@@ -14,6 +14,7 @@ public class ProjectPanel extends JPanel {
     public static final int FRAMEWIDTH = 690, FRAMEHEIGHT = 720;
     private Timer timer;
     private boolean[] keys;
+    private int life = 3;
     private Ash ash;
     private Heart heart;
     private Live live;
@@ -78,6 +79,14 @@ public class ProjectPanel extends JPanel {
 //                    if (monster.get(i).intersects(Oli) == true ) {
 //                        Oli.setDead(true);
 //                    }
+                    if(life==3){
+                        live.setPic("FullHeart.png", Sprite.NORTH);
+                    }else if(life==2){
+                        live.setPic("Heart-1.png", Sprite.NORTH);
+                    }else if(life==1){
+                        live.setPic("Heart-2.png", Sprite.NORTH);
+                    }
+
                 }
 
         repaint();
