@@ -59,6 +59,7 @@ public class Monster extends Sprite {
                     if (dx > 0) {
                         setDir(Sprite.WEST);
                         setPic("PikaLeft.png", WEST);
+
                     }
                     else {
 

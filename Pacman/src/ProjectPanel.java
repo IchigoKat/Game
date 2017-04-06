@@ -82,7 +82,7 @@ public class ProjectPanel extends JPanel {
                             monster.setDead(true);
                             power=-1;
                         }
-                        if (power==0)
+                        if (power!=4)
                         ash.setDead(true);
                     }
                 for (int i = 0; i <poke.size() ; i++) {
@@ -142,24 +142,43 @@ public class ProjectPanel extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         Color blue = new Color (193, 157, 85);
-        g2.setPaint(blue);
-        g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
-        for (Sprite p : poke) {
-            p.draw(g2);
+        if(life!=0 && monster.getDead()==false) {
+            g2.setPaint(blue);
+            g2.fillRect(0, 0, FRAMEWIDTH, FRAMEHEIGHT);
+            for (Sprite p : poke) {
+                p.draw(g2);
 
-        }
-        for (int i = 0; i <poke.size() ; i++) {
-            if (poke.get(i).intersects(ash) == true) {
-                poke.remove(poke.get(i));
             }
+            for (int i = 0; i < poke.size(); i++) {
+                if (poke.get(i).intersects(ash) == true) {
+                    poke.remove(poke.get(i));
+                }
+            }
+
+            monster.draw(g2);
+            ash.draw(g2);
+            gr.dra(g2);
+            live.draw(g2);
+            heart.draw(g2);
         }
+        if (life == 0) {
+//            pic of dead
 
-        monster.draw(g2);
-        ash.draw(g2);
-        gr.dra(g2);
-        live.draw(g2);
-        heart.draw(g2);
-
+            g2.setColor(Color.black);
+            g2.fillRect(0, 0, FRAMEWIDTH, FRAMEHEIGHT);
+            g2.setColor(Color.white);
+            g2.setFont(new Font("Times New Roman", Font.PLAIN, 50));
+            g2.drawString("Game Over", 225, 300);
+        }
+        if (monster.getDead()==true){
+            g2.setColor(Color.black);
+            g2.fillRect(0, 0, FRAMEWIDTH, FRAMEHEIGHT);
+            g2.setColor(Color.white);
+            g2.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+            g2.drawString("You Caught Pikachu!", 80, 300);
+            g2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+            g2.drawString(" Continue your adventure by purchasing Pokemon at your local Walmart!",70,500);
+        }
     }
     public static void main(String[] args) {
         int w = 420;
