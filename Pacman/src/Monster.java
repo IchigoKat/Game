@@ -12,7 +12,7 @@ public class Monster extends Sprite {
         setPic("PikaLeft.png",NORTH);
         target= panel.target();
         this.grid=grid;
-        setSpeed(5);
+        setSpeed(4);
     }
 
     public void setDead(boolean d) {
@@ -79,8 +79,33 @@ public class Monster extends Sprite {
                 }
             }
 //            if(temp is inside a wall...)
-            if (move)
+            if (move){
+                if(target.getX()-5<this.getX() && target.getX()+5>this.getX() && Math.abs(target.getY()-this.getY())<=100){
+                    if(dy>0){
+                        setDir(Sprite.NORTH);
+                        setPic("PikaFront.png", NORTH);
+
+                    }else{
+                        setDir(Sprite.SOUTH);
+                        setPic("PikaFront.png", SOUTH);
+
+                    }
+                }
+                if(target.getY()-3>this.getY() && target.getY()+3<this.getY() && Math.abs(target.getX()-this.getX())<=100){
+                    if(dx>0){
+
+                    setDir(Sprite.WEST);
+                    setPic("PikaLeft.png", WEST);
+
+                }else{
+                    setDir(Sprite.EAST);
+                    setPic("PikaRight.png", EAST);
+                }
+                }
                 super.update();
+            }
+
+
         } else {
             getDead();
             setDead(true);
