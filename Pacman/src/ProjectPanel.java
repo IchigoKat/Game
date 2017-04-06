@@ -18,7 +18,9 @@ public class ProjectPanel extends JPanel {
     private Ash ash;
     private Heart heart;
     private Live live;
-    private ArrayList<Sprite> monster, poke;
+    private Monster monster;
+    private ArrayList<Sprite> poke;
+    private int power=0;
 
     private PacManGrid gr;
 
@@ -27,7 +29,7 @@ public class ProjectPanel extends JPanel {
         keys = new boolean[512];
         gr = new PacManGrid();
         ash = new Ash(gr);
-        monster = new ArrayList<Sprite>();
+        monster = new Monster(330,300,this,gr);
         heart = new Heart();
         live = new Live();
         poke = new ArrayList<Sprite>();
@@ -35,7 +37,7 @@ public class ProjectPanel extends JPanel {
             poke.add(new Pokeball(630, 30));
             poke.add(new Pokeball(30, 585));
             poke.add(new Pokeball(630, 585));
-        monster.add(new Monster(330,300,this,gr));
+
 
         timer = new Timer(40, new ActionListener() {
 
@@ -73,13 +75,24 @@ public class ProjectPanel extends JPanel {
                     keys[KeyEvent.VK_DOWN] = false;
                 }
                 ash.update();
+                    monster.update();
 
-                for (int i = 0; i < monster.size(); i++) {
-                    monster.get(i).update();
-//                    if (monster.get(i).intersects(Oli) == true ) {
-//                        Oli.setDead(true);
-//                    }
+                    if (monster.intersects(ash) == true ) {
+                        if(power==4){
+                            monster.setDead(true);
+                            power=0;
+                        }
+                        if (power==0)
+                        ash.setDead(true);
                     }
+                for (int i = 0; i <poke.size() ; i++) {
+
+                    if (poke.get(i).intersects(ash) == true) {
+                        power++;
+
+                    }
+                }
+
                     if(life==3){
                         heart.setPic("FullHeart.png", Sprite.NORTH);
                     }else if(life==2){
@@ -128,10 +141,15 @@ public class ProjectPanel extends JPanel {
         g2.fillRect(0,0,FRAMEWIDTH,FRAMEHEIGHT);
         for (Sprite p : poke) {
             p.draw(g2);
+
         }
-        for(Sprite s: monster) {
-            s.draw(g2);
+        for (int i = 0; i <poke.size() ; i++) {
+            if (poke.get(i).intersects(ash) == true) {
+                poke.remove(poke.get(i));
+            }
         }
+
+        monster.draw(g2);
         ash.draw(g2);
         gr.dra(g2);
         live.draw(g2);
