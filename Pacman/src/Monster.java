@@ -12,7 +12,7 @@ public class Monster extends Sprite {
         setPic("PikaLeft.png",NORTH);
         target= panel.target();
         this.grid=grid;
-        setSpeed(3);
+        setSpeed(4);
     }
 
     public void setDead(boolean d) {

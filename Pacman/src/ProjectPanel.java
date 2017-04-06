@@ -80,7 +80,7 @@ public class ProjectPanel extends JPanel {
                     if (monster.intersects(ash) == true ) {
                         if(power==4){
                             monster.setDead(true);
-                            power=0;
+                            power=-1;
                         }
                         if (power==0)
                         ash.setDead(true);
@@ -91,6 +91,11 @@ public class ProjectPanel extends JPanel {
                         power++;
 
                     }
+                }
+                if (ash.getDead()==true){
+                    life--;
+                    ash.setLoc(new Point(100,300));
+                    ash.setDead(false);
                 }
 
                     if(life==3){
