@@ -79,15 +79,17 @@ public class ProjectPanel extends JPanel {
 //                    if (monster.get(i).intersects(Oli) == true ) {
 //                        Oli.setDead(true);
 //                    }
+                    }
                     if(life==3){
-                        live.setPic("FullHeart.png", Sprite.NORTH);
+                        heart.setPic("FullHeart.png", Sprite.NORTH);
                     }else if(life==2){
-                        live.setPic("Heart-1.png", Sprite.NORTH);
+                        heart.setPic("Heart-1.png", Sprite.NORTH);
                     }else if(life==1){
-                        live.setPic("Heart-2.png", Sprite.NORTH);
+                        heart.setPic("Heart-2.png", Sprite.NORTH);
+                    }else{
+                        heart.setPic("Heart-3.png", Sprite.NORTH);
                     }
 
-                }
 
         repaint();
             }
@@ -132,8 +134,9 @@ public class ProjectPanel extends JPanel {
         }
         ash.draw(g2);
         gr.dra(g2);
-        heart.draw(g2);
         live.draw(g2);
+        heart.draw(g2);
+
     }
     public static void main(String[] args) {
         int w = 420;
